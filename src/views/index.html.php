@@ -11,7 +11,7 @@
         <h1 class="text-center">Vanderbilt Facebook Photos</h1>
         <div class="row">
             <?php foreach ($pictures as $picture): ?>
-                <div class="col-xs-2" style="height: 150px">
+                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="height: 150px">
                     <a href="/details/<?php echo $picture['id']; ?>">
                         <img title="<?php echo $picture['name']; ?>" src="<?php echo $picture['picture']; ?>">
                     </a>
