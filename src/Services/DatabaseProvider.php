@@ -1,9 +1,10 @@
 <?php namespace VU\App\Services;
 
-use League\Container\ServiceProvider;
 use PDO;
-use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Provides an instance of the PDO database class
+ */
 class DatabaseProvider
 {
     public $pdo;

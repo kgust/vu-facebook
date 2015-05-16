@@ -1,8 +1,15 @@
 <?php
 
+/**
+ * Render a template
+ *
+ * @param string $template Pathname of the template
+ * @param Array  $args     Array of arguments to pass in
+ *
+ * @return string
+ */
 function render($template, Array $args)
 {
-    // usually a bad practice but I need to get these variables into current scope.
     extract($args);
 
     ob_start();
@@ -13,6 +20,14 @@ function render($template, Array $args)
     return $contents;
 }
 
+/**
+ * If database entry exists update it, else create a new one.
+ *
+ * @param PDO      Database connection
+ * @param StdClass Class containing the values
+ *
+ * @return bool Was the insert/update successful?
+ */
 function insertOrUpdate($pdo, $photo)
 {
     try {
@@ -52,7 +67,9 @@ function insertOrUpdate($pdo, $photo)
                 print($update->errorInfo()[2]);
             }
         }
-    } catch(PDOException $e) {
+
+        return $result;
+    } catch (PDOException $e) {
         echo $e->getMessage();
     }
 }
