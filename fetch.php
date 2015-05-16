@@ -5,7 +5,7 @@ require 'src/functions.php';
 
 $db = new \VU\App\Services\DatabaseProvider;
 $pdo = $db->pdo;
-$config = require('config.php');
+$config = require 'config.php';
 $facebook_url = $config['facebook_url'];
 $url = $facebook_url;
 

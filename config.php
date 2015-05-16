@@ -7,6 +7,5 @@ return [
         'user' => 'dbuser',
         'pass' => 'dbpass',
     ],
-    'facebook_url' => 'http://graph.facebook.com/vanderbilt/photos/uploaded'
-	.'?fields=id,name,source,picture,likes.limit(0).summary(true)',
+    'facebook_url' => 'http://graph.facebook.com/vanderbilt/photos/uploaded?fields=id,name,source,picture,likes.limit(0).summary(true)',
 ];
