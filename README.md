@@ -1,9 +1,6 @@
-# Vanderbilt Facebook Photos
+# Facebook Photos
 
 For Ross D. and Jason T.
-
-To see this in a live environment, go to http://kgust.zzzz.io.  This
-is a Raspberry PI 2 running Ubuntu. :smile:
 
 ## Installation Instructions
 
