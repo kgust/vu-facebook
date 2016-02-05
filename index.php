@@ -11,7 +11,7 @@ $router = new Router();
 
 $router->get('/details/{id}', 'VU\App\Controllers\PhotoController::show');
 $router->get('/', 'VU\App\Controllers\PhotoController::index');
-$router->get('/{path}', function(Request $request, Response $response) {
+$router->get('/{path}', function (Request $request, Response $response) {
     return new Response(null, 404);
 });
 

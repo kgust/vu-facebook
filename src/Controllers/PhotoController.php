@@ -1,4 +1,6 @@
-<?php namespace VU\App\controllers;
+<?php
+
+namespace VU\App\controllers;
 
 use Symfony\Component\HttpFoundation\Response;
 use VU\App\Services\DatabaseProvider;
@@ -6,21 +8,21 @@ use VU\App\Services\DatabaseProvider;
 class PhotoController
 {
     /**
-     * @var $pdo Database connection
+     * @var Database connection
      */
     private $pdo;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->db = new DatabaseProvider;
+        $this->db = new DatabaseProvider();
         $this->pdo = $this->db->pdo;
     }
 
     /**
-     * Index action
+     * Index action.
      *
      * @param Response Response object
      *
@@ -39,10 +41,10 @@ class PhotoController
     }
 
     /**
-     * Show photo details action
+     * Show photo details action.
      *
      * @param Response $response Response object
-     * @param Array    $args     Array of arguments
+     * @param array    $args     Array of arguments
      *
      * @return Response
      */

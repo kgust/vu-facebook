@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Render a template
+ * Render a template.
  *
  * @param string $template Pathname of the template
- * @param Array  $args     Array of arguments to pass in
+ * @param array  $args     Array of arguments to pass in
  *
  * @return string
  */
-function render($template, Array $args)
+function render($template, array $args)
 {
     extract($args);
 
     ob_start();
-    include($template);
+    include $template;
     $contents = ob_get_contents();
     ob_end_clean();
 
@@ -31,10 +31,10 @@ function render($template, Array $args)
 function insertOrUpdate(PDO $pdo, StdClass $photo)
 {
     try {
-        $select = $pdo->prepare("SELECT id FROM photos WHERE id = ?");
+        $select = $pdo->prepare('SELECT id FROM photos WHERE id = ?');
         $result = $select->execute([$photo->id]);
         if ($result === false) {
-            print($select->errorInfo()[2]);
+            echo $select->errorInfo()[2];
         }
 
         if (!$select->fetch()) {
@@ -50,7 +50,7 @@ function insertOrUpdate(PDO $pdo, StdClass $photo)
                 $photo->likes->summary->total_count,
             ]);
             if (!$result) {
-                print($insert->errorInfo()[2]);
+                echo $insert->errorInfo()[2];
             }
         } else {
             $sql = 'UPDATE photos SET name=?,source=?,picture=?,created_time=?,likes=? WHERE id = ?';
@@ -64,7 +64,7 @@ function insertOrUpdate(PDO $pdo, StdClass $photo)
                 $photo->id,
             ]);
             if (!$result) {
-                print($update->errorInfo()[2]);
+                echo $update->errorInfo()[2];
             }
         }
 
