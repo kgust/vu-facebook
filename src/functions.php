@@ -23,12 +23,12 @@ function render($template, Array $args)
 /**
  * If database entry exists update it, else create a new one.
  *
- * @param PDO      Database connection
- * @param StdClass Class containing the values
+ * @param PDO      $pdo   Database connection
+ * @param StdClass $photo Class containing the values
  *
  * @return bool Was the insert/update successful?
  */
-function insertOrUpdate($pdo, $photo)
+function insertOrUpdate(PDO $pdo, StdClass $photo)
 {
     try {
         $select = $pdo->prepare("SELECT id FROM photos WHERE id = ?");
