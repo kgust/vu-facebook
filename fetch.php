@@ -1,10 +1,8 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'src/functions.php';
 
 $db = new \VU\App\Services\DatabaseProvider();
-$pdo = $db->pdo;
 $config = require 'config.php';
 $facebook_url = $config['facebook_url'];
 $url = $facebook_url;
@@ -20,7 +18,7 @@ do {
             $photo->name = '';
         }
 
-        $rows = insertOrUpdate($pdo, $photo);
+        $rows = $db->insertOrUpdate($photo);
     }
 
     if (property_exists($content->paging, 'next')) {

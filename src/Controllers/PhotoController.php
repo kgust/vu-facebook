@@ -1,11 +1,11 @@
 <?php
 
-namespace VU\App\controllers;
+namespace VU\App\Controllers;
 
 use Symfony\Component\HttpFoundation\Response;
 use VU\App\Services\DatabaseProvider;
 
-class PhotoController
+class PhotoController extends BaseController
 {
     /**
      * @var Database connection
@@ -33,7 +33,7 @@ class PhotoController
         $sql = 'SELECT * FROM photos ORDER BY created_time DESC';
         $rows = $this->pdo->query($sql);
 
-        $content = render('src/views/index.html.php', ['pictures' => $rows]);
+        $content = $this->render('src/views/index.html.php', ['pictures' => $rows]);
         $response->setContent($content);
         $response->setStatusCode(200);
 
@@ -56,7 +56,7 @@ class PhotoController
         $statement = $this->pdo->query($sql);
         $row = $statement->fetch();
 
-        $content = render('src/views/details.html.php', ['row' => $row]);
+        $content = $this->render('src/views/details.html.php', ['row' => $row]);
         $response->setContent($content);
         $response->setStatusCode(200);
 
