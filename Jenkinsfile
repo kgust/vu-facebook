@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('install') {
       steps {
-        sh 'pwd'
+        sh 'pwd; php --version'
       }
     }
   }
